@@ -1,0 +1,79 @@
+[
+  {
+    "mode": "bot",
+    "errors": [],
+    "models": [],
+    "poster": [
+      {
+        "src": "http://localhost:3000/assets/grass-hero/poster-mobile.webp",
+        "loaded": true
+      }
+    ],
+    "h1": "AI has a brain.\nGive it access to reality."
+  },
+  {
+    "mode": "no-webgl",
+    "errors": [],
+    "models": [],
+    "poster": [
+      {
+        "src": "http://localhost:3000/assets/grass-hero/poster-mobile.webp",
+        "loaded": true
+      }
+    ],
+    "h1": "AI has a brain.\nAI\nhas\na\nbrain.\nGive it access to reality.\nGive\nit\naccess\nto\nreality."
+  },
+  {
+    "mode": "reduced",
+    "errors": [],
+    "models": [
+      "http://localhost:3000/pirophone-mobile.glb"
+    ],
+    "poster": [],
+    "h1": "AI has a brain.\nAI\nhas\na\nbrain.\nGive it access to reality.\nGive\nit\naccess\nto\nreality."
+  },
+  {
+    "route": "about",
+    "status": 200,
+    "title": "About — PIRA",
+    "canonical": "http://localhost:3000/about",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "how-it-works",
+    "status": 200,
+    "title": "How It Works — PIRA",
+    "canonical": "http://localhost:3000/how-it-works",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "architecture",
+    "status": 200,
+    "title": "Architecture — PIRA",
+    "canonical": "http://localhost:3000/architecture",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "download",
+    "status": 200,
+    "title": "Download — PIRA",
+    "canonical": "http://localhost:3000/download",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "privacy-policy",
+    "status": 200,
+    "title": "Privacy Policy — PIRA",
+    "canonical": "http://localhost:3000/privacy-policy",
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "download": "The Android release is coming.",
+    "github": "https://github.com/PIRA-Labs/Pira-web"
+  }
+]

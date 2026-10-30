@@ -1,0 +1,48 @@
+── Motion (hard rules #1–#3) ─────────────────────────────────
+── Tokens (hard rule #4) ─────────────────────────────────────
+WARN  hex literal in source (outside globals.css)
+      Config values like siteConfig.themeColor are acceptable; anything visual must be a token.
+      src/components/scene/grass-field/grass-field.config.ts:170:    materialFill: { color: "#ffffff", intensity: 0.65 },
+      src/components/scene/grass-field/grass-field.config.ts:201:      coreColor: "#fffdf2",
+      src/components/scene/grass-field/grass-field.config.ts:202:      edgeColor: "#ff9a30",
+      src/components/scene/grass-field/grass-field.config.ts:217:      color: "#ff8a2a",
+      src/components/scene/grass-field/grass-field.config.ts:239:    color: "#7fd8ff",
+      src/components/scene/grass-field/grass-field.config.ts:301:    shadowTint: "#1c3f7a",
+      src/components/scene/grass-field/grass-field.config.ts:302:    highlightTint: "#ffb257",
+      src/components/scene/grass-field/grass-field.config.ts:319:    vignetteColor: "#000000",
+      src/components/scene/grass-field/grass-field.config.ts:602:    tip: "#003d75",
+      src/components/scene/grass-field/grass-field.config.ts:603:    bottom: "#006680",
+      src/components/scene/grass-field/grass-field.config.ts:604:    skyTop: "#005bdb",
+      src/components/scene/grass-field/grass-field.config.ts:606:    skyHorizon: "#c8dcea",
+      src/components/scene/grass-field/grass-field.config.ts:607:    cloud: "#ffffff",
+      src/components/scene/grass-field/grass-field.config.ts:609:    horizonGlow: "#ffe9cf",
+      src/components/scene/grass-field/grass-field.config.ts:615:    haze: "#ebf7ff",
+      src/components/scene/grass-field/grass-field.config.ts:616:    sun: "#ff7a95",
+      src/components/scene/grass-field/grass-field.config.ts:622:    groundBase: "#000000",
+      src/components/scene/grass-field/grass-field.config.ts:623:    groundTip: "#004f80",
+      src/components/scene/grass-field/grass-field.config.ts:625:    dry: "#6181c2",
+      src/components/scene/grass-field/grass-field.config.ts:627:    flower: "#faffb8",
+
+WARN  arbitrary px/rem value in a class name
+      Prefer a spacing token; arbitrary values are for var() references and genuine one-offs.
+      src/components/common/Cookie/CookieBanner.tsx:45:        className="fixed bottom-4 left-4 right-4 z-50 flex flex-col gap-3 rounded-xl border border-foreground/10 bg-background/95 p-5 font-sans text-foreground shadow-2xl backdrop-blur-xl sm:bottom-12 sm:left-auto sm:right-12 sm:w-[420px] sm:p-6"
+      src/components/common/Cookie/CookiePreferencesModal.tsx:115:          className="absolute left-1/2 top-1/2 flex max-h-[calc(100dvh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-[560px] flex-col gap-5 overflow-hidden rounded-xl border border-foreground/10 bg-background p-5 text-foreground shadow-2xl sm:p-7"
+      src/components/common/Cookie/CookiePreferencesModal.tsx:169:                  className="flex items-start justify-between gap-4 rounded-[10px] border border-foreground/10 px-4 py-3.5"
+      src/components/common/Cookie/CookiePreferencesModal.tsx:233:        className="absolute left-[3px] top-[3px] block h-[18px] w-[18px] rounded-full bg-background shadow"
+      src/components/scene/grass-field/scene-controls.tsx:267:                            <span className="shrink-0 font-mono text-[0.65rem] opacity-70">
+      src/components/scene/grass-field/scene-controls.tsx:342:                className="w-full resize-none rounded-md border border-foreground/15 bg-background/60 p-2 font-mono text-[0.65rem] leading-snug"
+      src/views/legal/legal-document.tsx:31:    <header className="mx-auto w-full max-w-[48rem] px-4 pb-8 pt-24 md:px-6 md:pt-28 xl:px-8">
+      src/views/legal/legal-document.tsx:35:      <h1 className="mt-6 text-[2.5rem] leading-none">{title}</h1>
+      src/views/legal/legal-document.tsx:40:    <main id="main" className="mx-auto w-full max-w-[48rem] px-4 pb-24 md:px-6 xl:px-8">
+      src/views/legal/legal-document.tsx:43:          <h2 className="text-[1.5rem] leading-[1.2]">{section.heading}</h2>
+
+── Architecture (hard rules #5–#9) ───────────────────────────
+── Markup & a11y (hard rule #10) ─────────────────────────────
+── Hygiene ───────────────────────────────────────────────────
+WARN  console.log in source
+      Remove before committing.
+      src/app/api/contact/route.ts:39:    console.log("[api/contact] submission:", input);
+
+──────────────────────────────────────────────────────────────
+0 FAIL / 3 WARN — mechanical rules pass.
+Also required: yarn lint, yarn build, and the judgement checks in the qa-verify skill.

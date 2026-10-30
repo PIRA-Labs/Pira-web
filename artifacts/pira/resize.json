@@ -1,0 +1,182 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "programs": 10,
+    "canvas": [
+      1440,
+      900
+    ],
+    "navLinks": [
+      {
+        "text": "PIRA.",
+        "x": 23.984375,
+        "right": 67.046875
+      },
+      {
+        "text": "About",
+        "x": 507.234375,
+        "right": 580.46875
+      },
+      {
+        "text": "How It Works",
+        "x": 584.453125,
+        "right": 717.671875
+      },
+      {
+        "text": "Architecture",
+        "x": 721.65625,
+        "right": 852.0625
+      },
+      {
+        "text": "GitHub",
+        "x": 856.046875,
+        "right": 932.765625
+      },
+      {
+        "text": "Android APK",
+        "x": 1286.03125,
+        "right": 1416.015625
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "programs": 10,
+    "canvas": [
+      390,
+      900
+    ],
+    "navLinks": [
+      {
+        "text": "PIRA.",
+        "x": 25.984375,
+        "right": 72.640625
+      }
+    ]
+  },
+  {
+    "width": 800,
+    "overflow": false,
+    "programs": 10,
+    "canvas": [
+      800,
+      900
+    ],
+    "navLinks": [
+      {
+        "text": "PIRA.",
+        "x": 18.75,
+        "right": 52.40625
+      },
+      {
+        "text": "About",
+        "x": 233.6953125,
+        "right": 290.9453125
+      },
+      {
+        "text": "How It Works",
+        "x": 294.0703125,
+        "right": 398.1796875
+      },
+      {
+        "text": "Architecture",
+        "x": 401.3046875,
+        "right": 503.2109375
+      },
+      {
+        "text": "GitHub",
+        "x": 506.3359375,
+        "right": 566.3046875
+      },
+      {
+        "text": "Android APK",
+        "x": 679.6875,
+        "right": 781.25
+      }
+    ]
+  },
+  {
+    "width": 641,
+    "overflow": false,
+    "programs": 10,
+    "canvas": [
+      641,
+      900
+    ],
+    "navLinks": [
+      {
+        "text": "PIRA.",
+        "x": 15.015625,
+        "right": 41.984375
+      },
+      {
+        "text": "About",
+        "x": 187.265625,
+        "right": 233.125
+      },
+      {
+        "text": "How It Works",
+        "x": 235.625,
+        "right": 319.046875
+      },
+      {
+        "text": "Architecture",
+        "x": 321.546875,
+        "right": 403.203125
+      },
+      {
+        "text": "GitHub",
+        "x": 405.703125,
+        "right": 453.734375
+      },
+      {
+        "text": "Android APK",
+        "x": 544.609375,
+        "right": 625.984375
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "programs": 10,
+    "canvas": [
+      1440,
+      900
+    ],
+    "navLinks": [
+      {
+        "text": "PIRA.",
+        "x": 23.984375,
+        "right": 67.046875
+      },
+      {
+        "text": "About",
+        "x": 507.234375,
+        "right": 580.46875
+      },
+      {
+        "text": "How It Works",
+        "x": 584.453125,
+        "right": 717.671875
+      },
+      {
+        "text": "Architecture",
+        "x": 721.65625,
+        "right": 852.0625
+      },
+      {
+        "text": "GitHub",
+        "x": 856.046875,
+        "right": 932.765625
+      },
+      {
+        "text": "Android APK",
+        "x": 1286.03125,
+        "right": 1416.015625
+      }
+    ]
+  }
+]

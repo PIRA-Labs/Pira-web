@@ -1,0 +1,293 @@
+/* `source("../")` limits class detection to `src/` (this file lives in src/app).
+   Without it Tailwind v4 scans the whole repo — including obsidian/ and .claude/,
+   where documented class *patterns* like duration-[var(--duration-*)] parse as
+   real candidates and emit CSS warnings. Docs are not a source of utilities. */
+@import "tailwindcss" source("../");
+
+/* ---------------------------------------------------------------------------
+   TIER 1 — PRIMITIVES  (`--raw-*`)
+   Raw literal values. The only tier allowed to contain a hex/px/ms literal.
+   Never referenced in markup, never bound into @theme. Rename freely.
+   Grammar: --raw-<category>-<name>[-<shade>]
+   See obsidian/frontend/design-system.md → "Token naming convention".
+   --------------------------------------------------------------------------- */
+:root {
+  /* PIRA document surface and minimum hero height retain the scene palette. */
+  --raw-color-project-night: #102b32;
+  --raw-size-header: 64px;
+  --raw-size-touch-target: 44px;
+  --raw-size-hero: 46rem;
+  --raw-size-document: 64rem;
+  --raw-color-white: #ffffff;
+  --raw-color-neutral-100: #ededed;
+  --raw-color-neutral-900: #171717;
+  --raw-color-neutral-950: #0a0a0a;
+
+  /* Sky horizon of the grass-field scene. Mirrors `colors.skyHorizon` in
+     src/components/scene/grass-field/grass-field.config.ts — a GLSL uniform
+     cannot read a CSS token, so the value is declared in both places; keep
+     them in sync. */
+  --raw-color-sky-horizon: #cdd2f2;
+  /* Preloader palette — sampled from the author's reference (2026-09-14): a
+     pale blue-white ghost counter, filled by a blue-to-lilac gradient. */
+  --raw-color-counter-ghost: #f3f5fd;
+  --raw-color-counter-blue: #3d5af1;
+  --raw-color-counter-lilac: #dcbad8;
+
+  /* Hero overlay palette — read from Figma (Get Layers, node 3255:783). */
+  --raw-color-black: #000000;
+  --raw-color-white-alpha-10: rgb(255 255 255 / 0.1);
+  --raw-color-white-alpha-20: rgb(255 255 255 / 0.2);
+  --raw-color-white-alpha-60: rgb(255 255 255 / 0.6);
+  --raw-color-cream-alpha-5: rgb(255 251 246 / 0.05);
+  --raw-color-cream-alpha-80: rgb(255 251 246 / 0.8);
+  /* Hover states — no hover exists in Figma; these step the same two surfaces
+     one notch brighter rather than introducing new colours. */
+  --raw-color-cream: rgb(255 251 246);
+
+  /* Lighter pill surface (PIRA art-direction pass): the nav pills were
+     refined smaller and more understated, so their frosted glass steps down
+     to 6%/14% from the overlay glass's 10%/20% — a quieter, more technical
+     control that reads as a viewfinder affordance, not a chunky button. */
+  --raw-color-white-alpha-6: rgb(255 255 255 / 0.06);
+  --raw-color-white-alpha-14: rgb(255 255 255 / 0.14);
+
+  /* Type scale of the hero overlay (design px / 16 at the 1440 tier). */
+  --raw-font-size-14: 0.875rem;
+  --raw-font-size-18: 1.125rem;
+  --raw-font-size-28: 1.75rem;
+  --raw-font-size-40: 2.5rem;
+  --raw-font-size-56: 3.5rem;
+  --raw-font-size-80: 5rem;
+  --raw-font-size-64: 4rem;
+  --raw-font-size-180: 11.25rem;
+  --raw-line-height-120: 1.2;
+
+  /* Display headline tracking — Space Grotesk set tight for a technical,
+     engineered read on the big hero line, and the subtitle opened slightly so
+     the dimmed second line feels calm and spacious against it. */
+  --raw-tracking-tight: -0.03em;
+  --raw-tracking-wide: 0.01em;
+
+  --raw-radius-6: 0.375rem;
+  --raw-radius-14: 0.875rem;
+  --raw-radius-16: 1rem;
+
+  --raw-blur-4: 0.25rem;
+  --raw-blur-8: 0.5rem;
+
+  --raw-duration-fast: 150ms;
+  --raw-duration-normal: 250ms;
+}
+
+/* ---------------------------------------------------------------------------
+   TIER 2 — SEMANTIC  (role names, no namespace prefix)
+   Purpose, not appearance. Always `var(--raw-*)` — never a literal.
+   This is the themeable layer: dark mode overrides happen HERE, which is why
+   these are separate from the @theme bindings below (see the note there).
+   Grammar: --<role>[-<variant>][-<state>]
+   --------------------------------------------------------------------------- */
+:root {
+  --project-surface: var(--raw-color-project-night);
+  --header-height: var(--raw-size-header);
+  --touch-target: var(--raw-size-touch-target);
+  --hero-height: var(--raw-size-hero);
+  --document-width: var(--raw-size-document);
+  --background: var(--raw-color-white);
+  --foreground: var(--raw-color-neutral-900);
+
+  /* Painted behind a WebGL canvas until its first frame lands, and left
+     visible when a device has no WebGL at all. */
+  --scene-backdrop: var(--raw-color-sky-horizon);
+
+  /* UI drawn over the scene. Not overridden in dark mode: the scene behind it
+     looks the same in either scheme, so the overlay must too. */
+  --overlay-text: var(--raw-color-white);
+  --overlay-text-muted: var(--raw-color-white-alpha-60);
+  --overlay-hairline: var(--raw-color-white-alpha-20);
+  --overlay-glass: var(--raw-color-white-alpha-10);
+  --overlay-glass-hover: var(--raw-color-white-alpha-20);
+  /* Understated nav-pill surface — lighter than the general overlay glass. */
+  --overlay-pill: var(--raw-color-white-alpha-6);
+  --overlay-pill-hover: var(--raw-color-white-alpha-14);
+  --overlay-band: var(--raw-color-cream-alpha-5);
+  --overlay-action: var(--raw-color-cream-alpha-80);
+  --overlay-action-hover: var(--raw-color-cream);
+  --overlay-action-text: var(--raw-color-black);
+  --overlay-action-icon: var(--raw-color-black);
+
+  --preloader-surface: var(--raw-color-white);
+  --preloader-counter: var(--raw-color-counter-ghost);
+  --preloader-fill-start: var(--raw-color-counter-blue);
+  --preloader-fill-end: var(--raw-color-counter-lilac);
+
+  --type-label: var(--raw-font-size-14);
+  --type-body: var(--raw-font-size-18);
+  --type-subtitle: var(--raw-font-size-56);
+  --type-display: var(--raw-font-size-80);
+  --type-counter: var(--raw-font-size-180);
+  /* ≤ 640 px tier (360 base): 180 would make "100%" nearly the full width. */
+  --type-counter-compact: var(--raw-font-size-64);
+  /* No phone frame exists in Figma. These halve the two headline sizes so the
+     ≤640 px tier (base width 360) fits — an adaptation, not a design value. */
+  --type-subtitle-compact: var(--raw-font-size-28);
+  --type-display-compact: var(--raw-font-size-40);
+  --line-height-copy: var(--raw-line-height-120);
+
+  /* Headline tracking roles (see primitives above). */
+  --tracking-display: var(--raw-tracking-tight);
+  --tracking-subtitle: var(--raw-tracking-wide);
+
+  --pill-radius: var(--raw-radius-6);
+  --action-radius: var(--raw-radius-16);
+  --action-icon-radius: var(--raw-radius-14);
+
+  --glass-blur: var(--raw-blur-4);
+  --band-blur: var(--raw-blur-8);
+
+  --duration-fast: var(--raw-duration-fast);
+  --duration-normal: var(--raw-duration-normal);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--raw-color-neutral-950);
+    --foreground: var(--raw-color-neutral-100);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   THEME BINDINGS — map semantic tokens into Tailwind namespaces.
+   Every entry is exactly `--<tw-namespace>-<role>: var(--<role>)`.
+   `inline` is required: it inlines the var() into each utility, so the
+   dark-mode overrides on the Tier 2 tokens above cascade. Binding a literal
+   here instead would freeze the value and break theming.
+
+   Only these namespaces generate utilities (verified against tailwindcss
+   v4.3.3): --color-* --spacing-* --radius-* --leading-* --tracking-* --text-*
+   --font-* --ease-* --breakpoint-* --container-* --shadow-* --blur-* --animate-*
+   NOTE: there is NO --duration-* namespace in v4 — `duration-fast` compiles to
+   nothing. Durations stay Tier 2 only and are used as duration-[var(--duration-fast)].
+   --------------------------------------------------------------------------- */
+@theme inline {
+  --color-project-surface: var(--project-surface);
+  --spacing-header: var(--header-height);
+  --spacing-touch-target: var(--touch-target);
+  --spacing-hero: var(--hero-height);
+  --container-document: var(--document-width);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-scene-backdrop: var(--scene-backdrop);
+  --font-sans: var(--font-onest);
+  --font-ui: var(--font-mulish);
+  --font-body: var(--font-open-sans);
+  /* PIRA display face — Space Grotesk, loaded in layout.tsx. Replaced the
+     template's Dancing Script (`font-script`); the role is "display", so the
+     token name follows the purpose, not the family. */
+  --font-display: var(--font-space-grotesk);
+
+  --color-overlay-text: var(--overlay-text);
+  --color-overlay-text-muted: var(--overlay-text-muted);
+  --color-overlay-hairline: var(--overlay-hairline);
+  --color-overlay-glass: var(--overlay-glass);
+  --color-overlay-glass-hover: var(--overlay-glass-hover);
+  --color-overlay-pill: var(--overlay-pill);
+  --color-overlay-pill-hover: var(--overlay-pill-hover);
+  --color-overlay-band: var(--overlay-band);
+  --color-overlay-action: var(--overlay-action);
+  --color-overlay-action-hover: var(--overlay-action-hover);
+  --color-overlay-action-text: var(--overlay-action-text);
+  --color-overlay-action-icon: var(--overlay-action-icon);
+  --color-preloader-surface: var(--preloader-surface);
+  --color-preloader-counter: var(--preloader-counter);
+  --color-preloader-fill-start: var(--preloader-fill-start);
+  --color-preloader-fill-end: var(--preloader-fill-end);
+
+  --text-label: var(--type-label);
+  --text-body: var(--type-body);
+  --text-subtitle: var(--type-subtitle);
+  --text-display: var(--type-display);
+  --text-counter: var(--type-counter);
+  --text-counter-compact: var(--type-counter-compact);
+  --text-subtitle-compact: var(--type-subtitle-compact);
+  --text-display-compact: var(--type-display-compact);
+  --leading-copy: var(--line-height-copy);
+  --tracking-display: var(--tracking-display);
+  --tracking-subtitle: var(--tracking-subtitle);
+
+  --radius-pill: var(--pill-radius);
+  --radius-action: var(--action-radius);
+  --radius-action-icon: var(--action-icon-radius);
+
+  --blur-glass: var(--glass-blur);
+  --blur-band: var(--band-blur);
+
+  /* Leading floor for clipped TextEngine reveals — see
+     obsidian/frontend/text-engine.md → "Alignment & line-height". */
+  --leading-display: 1.1;
+
+  --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* A plain document body. The starter shipped this as a flex box that centred
+   its single child on a 100vh/100vw canvas — fine for an empty template, but it
+   makes every flex item shrink-to-fit, so a full-bleed section (`w-full` inside
+   the ScrollLayout wrapper) resolves its width against a zero-width parent and
+   collapses. `100vw` also ignores the scrollbar gutter and forces a horizontal
+   scrollbar. Layout belongs to the view, not to the body. */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100lvh;
+  width: 100%;
+}
+
+@layer base {
+  /* Adaptive scaling grid — scales the root font-size with the viewport so a
+     rem-based layout stays proportional. Each breakpoint divides FONT_BASE
+     (16px) by the design base width its range was laid out at:
+       font-size: 16 * 100 / baseWidth  (vw)
+     Above 1920px the AdaptiveGrid component takes over (scale-up).
+     Keep in sync with src/components/common/grid/grid.config.ts. */
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 1920px) {
+    html {
+      font-size: 0.833333vw; /* 16 * 100 / 1920 */
+    }
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 1.111111vw; /* 16 * 100 / 1440 */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 1.5625vw; /* 16 * 100 / 1024 */
+    }
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 4.444444vw; /* 16 * 100 / 360 */
+    }
+  }
+}
+
+@layer utilities {
+}
+
+@layer components {
+}
+
+/* The consent banner is server-rendered (it paints with the page). Hidden before
+   paint for a visitor who already chose (`consent-flag.ts`) and on the robot
+   form, which has no visitor to ask (D-016). */
+html[data-consent] [data-cookie-banner],
+html:has(meta[name="x-robot-view"]) [data-cookie-banner] {
+  display: none;
+}

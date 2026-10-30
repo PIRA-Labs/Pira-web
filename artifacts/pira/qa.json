@@ -1,0 +1,129 @@
+[
+  {
+    "name": "desktop",
+    "errors": [],
+    "models": [
+      "http://localhost:3000/pirophone.glb"
+    ],
+    "layout": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": 1,
+      "title": "PIRA — Physical Intelligence Runtime for Agents",
+      "links": [
+        1383.0999999940395,
+        1383.7000000178814,
+        1383.9000000059605,
+        1384.800000011921,
+        1385,
+        1398.0999999940395,
+        1398.300000011921,
+        1866.7000000178814,
+        1869.9000000059605,
+        1880.7000000178814
+      ],
+      "drawsPerFrame": [
+        18,
+        17,
+        19
+      ],
+      "canvas": [
+        1440,
+        900
+      ]
+    }
+  },
+  {
+    "name": "desktop about",
+    "layout": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": 1
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "errors": [],
+    "models": [
+      "http://localhost:3000/pirophone-mobile.glb"
+    ],
+    "layout": {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": 1,
+      "title": "PIRA — Physical Intelligence Runtime for Agents",
+      "links": [
+        2845.699999988079,
+        2846.5,
+        2846.7999999821186,
+        2848.699999988079,
+        2848.9000000059605,
+        2876.7999999821186,
+        2877.0999999940395,
+        2978.5999999940395,
+        2981.199999988079,
+        3010.199999988079
+      ],
+      "drawsPerFrame": [
+        13,
+        0
+      ],
+      "canvas": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "name": "mobile about",
+    "layout": {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": 1
+    },
+    "errors": []
+  },
+  {
+    "name": "small",
+    "errors": [],
+    "models": [
+      "http://localhost:3000/pirophone-mobile.glb"
+    ],
+    "layout": {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "title": "PIRA — Physical Intelligence Runtime for Agents",
+      "links": [
+        2581.4000000059605,
+        2582,
+        2582.300000011921,
+        2584.100000023842,
+        2584.2000000178814,
+        2610.7000000178814,
+        2610.9000000059605,
+        2711.600000023842,
+        2714.800000011921,
+        2744
+      ],
+      "drawsPerFrame": [
+        13,
+        0
+      ],
+      "canvas": [
+        320,
+        667
+      ]
+    }
+  },
+  {
+    "name": "small about",
+    "layout": {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1
+    },
+    "errors": []
+  }
+]
