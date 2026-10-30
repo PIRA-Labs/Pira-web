@@ -21,7 +21,8 @@ authorization boundary between agent reasoning and device execution.
 - The home retains the scene, typography, viewfinder, pill controls, preloader,
   spring reveals and Observe → Reason → Act → Verify band. The footer adds a
   short scroll below the hero. Mobile navigation uses native `details/summary`.
-- Android build: `https://github.com/PIRA-Labs/Pira-Android`.
+- Android v0.1.0 APK: `https://github.com/PIRA-Labs/Pira-Android/releases/download/v0.1.0/PIRA-Android-v0.1.0.apk`.
+- Android source: `https://github.com/PIRA-Labs/Pira-Android`.
 - Navigation GitHub: `https://github.com/PIRA-Labs`.
 
 ## Release configuration
@@ -32,6 +33,7 @@ variables in production. Rebuild when changing a public environment variable.
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin; otherwise Vercel production domain |
+
 No Nebius keys or third-party API calls are exposed in the browser. The website
 uses only its own static content and same-origin paths.
 

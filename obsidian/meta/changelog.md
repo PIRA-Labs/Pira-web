@@ -16,6 +16,18 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-10-30 — Android v0.1.0 download and installation pass
+
+- Pointed all download calls to the published `PIRA-Android-v0.1.0.apk` release
+  asset and changed the homepage action to a direct Android download.
+- Reworked `/download` into an installation and configuration guide that mirrors
+  the Android app labels, requirements, credential handling, and source README.
+- Shortened the workflow page, separated the technical architecture reference,
+  and updated research and security pages with the Android runtime’s documented
+  trust boundaries and prototype status.
+
+---
+
 ## 2026-10-30 — Product narrative and official identity pass
 
 - Repositioned the public site around PIRA as a security-first execution layer:

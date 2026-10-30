@@ -3,7 +3,6 @@ import Image from "next/image";
 import { GlassPillLink } from "@/components/ui/glass-pill-link";
 import { ActionLink } from "@/components/ui/action-link";
 import { homeHeader } from "@/data/mocks/home";
-import { pira } from "@/data/pira";
 import { projectPages, type ProjectPageContent } from "@/data/project-pages";
 import { generateMetadata } from "@/utils/seo/generate-page-metadata";
 import { SiteFooter } from "./home/site-footer";
@@ -27,6 +26,7 @@ export const ProjectView = ({ page }: { page: ProjectPage }) => {
         <nav aria-label={homeHeader.navLabel}>
           <ul className="flex flex-wrap gap-2">
             {homeHeader.nav.map((item) => <li key={item.href}><GlassPillLink href={item.href} className="min-h-touch-target">{item.label}</GlassPillLink></li>)}
+            <li><GlassPillLink href={homeHeader.action.href} className="min-h-touch-target">{homeHeader.action.label}</GlassPillLink></li>
           </ul>
         </nav>
       </header>
@@ -34,20 +34,34 @@ export const ProjectView = ({ page }: { page: ProjectPage }) => {
         <p className="font-ui text-label uppercase">{content.eyebrow}</p>
         <h1 className="mt-6 text-display-compact leading-display sm:text-subtitle">{content.title}</h1>
         <p className="mt-8 max-w-prose text-body leading-relaxed">{content.intro}</p>
-        <ol className={`mt-16 grid gap-10 sm:grid-cols-2 ${content.sequence ? "lg:grid-cols-3" : ""}`}>
+        <div className={`mt-16 grid gap-10 sm:grid-cols-2 ${content.sequence ? "lg:grid-cols-3" : ""}`}>
           {content.sections.map((section, index) => (
-            <li key={section.heading} className="border-t border-overlay-hairline pt-6">
+            <section key={section.heading} aria-labelledby={`section-${index}`} className="border-t border-overlay-hairline pt-6">
               {content.sequence && <p className="font-ui text-label text-overlay-text-muted">{String(index + 1).padStart(2, "0")}</p>}
-              <section aria-labelledby={`section-${index}`}>
-                <h2 id={`section-${index}`} className="text-subtitle-compact leading-display">{section.heading}</h2>
-                <p className="mt-4 text-body leading-relaxed">{section.body}</p>
-              </section>
-            </li>
+              <h2 id={`section-${index}`} className="text-subtitle-compact leading-display">{section.heading}</h2>
+              <p className="mt-4 text-body leading-relaxed">{section.body}</p>
+              {section.items && (
+                section.ordered ? (
+                  <ol className="mt-5 list-decimal space-y-3 pl-6 text-body leading-relaxed marker:text-overlay-text-muted">
+                    {section.items.map((item) => <li key={item}>{item}</li>)}
+                  </ol>
+                ) : (
+                  <ul className="mt-5 list-disc space-y-3 pl-6 text-body leading-relaxed marker:text-overlay-text-muted">
+                    {section.items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                )
+              )}
+            </section>
           ))}
-        </ol>
+        </div>
         <div className="mt-16 flex flex-wrap gap-4">
-          <ActionLink href={pira.downloadHref} label="Get the Android build" icon="/assets/hero/download.svg" />
-          <GlassPillLink href={pira.githubUrl} className="min-h-touch-target">GitHub ↗</GlassPillLink>
+          {content.actions.map((action) => (
+            action.primary ? (
+              <ActionLink key={action.href} href={action.href} label={action.label} icon="/assets/hero/download.svg" />
+            ) : (
+              <GlassPillLink key={action.href} href={action.href} className="min-h-touch-target">{action.label}</GlassPillLink>
+            )
+          ))}
         </div>
       </main>
       <SiteFooter />

@@ -51,19 +51,19 @@ export const homeHeader: HomeHeaderContent = {
     { label: "How It Works", href: "/how-it-works" },
     { label: "Architecture", href: "/architecture" },
     { label: "Security", href: "/security" },
-    { label: "Developers", href: "/download" },
-    ...(pira.githubUrl ? [{ label: "GitHub", href: pira.githubUrl }] : []),
+    { label: "Research", href: "/about" },
+    { label: "GitHub", href: pira.githubUrl },
   ],
-  action: { label: "Android status", href: pira.downloadHref },
+  action: { label: "Download APK", href: pira.downloadHref },
 };
 
 export const homeHero: HomeHeroContent = {
   title: "Give AI access to reality.",
   subtitle: "Keep humans in control.",
-  body: pira.description,
-  action: { label: "See PIRA in Action", href: "/how-it-works" },
-  secondaryAction: { label: "Explore the Architecture", href: "/architecture" },
-  actionIcon: "/assets/hero/runtime.svg",
-  trust: "Security-first runtime. Human-controlled Android access.",
+  body: "Turn an existing Android phone into a physical interface for AI agents. PIRA connects cameras, AI reasoning, and device capabilities through a runtime you control.",
+  action: { label: "Download PIRA for Android", href: pira.downloadHref },
+  secondaryAction: { label: "How It Works", href: "/how-it-works" },
+  actionIcon: "/assets/hero/download.svg",
+  trust: "Real Android hardware. Scoped permissions. Human-controlled execution.",
   trustIcon: "/assets/hero/runtime.svg",
 };

@@ -45,9 +45,10 @@ yarn dev                # http://localhost:3000
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (falls back to the Vercel production domain) |
 
-The Android build is available from
-[`PIRA-Labs/Pira-Android`](https://github.com/PIRA-Labs/Pira-Android). The
-navigation GitHub link points to [PIRA Labs](https://github.com/PIRA-Labs).
+Download the Android v0.1.0 APK directly from
+[`PIRA-Android-v0.1.0.apk`](https://github.com/PIRA-Labs/Pira-Android/releases/download/v0.1.0/PIRA-Android-v0.1.0.apk).
+The Android source is [PIRA-Labs/Pira-Android](https://github.com/PIRA-Labs/Pira-Android),
+and the navigation GitHub link points to [PIRA Labs](https://github.com/PIRA-Labs).
 
 Rebuild after changing a public environment variable. See
 [`obsidian/architecture/environment-variables.md`](./obsidian/architecture/environment-variables.md).

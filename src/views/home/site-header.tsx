@@ -52,6 +52,7 @@ export const SiteHeader = ({ content }: SiteHeaderProps) => {
         <nav aria-label={navLabel} className="absolute right-0 mt-2 w-48 rounded-pill border border-overlay-hairline bg-project-surface p-2">
           <ul className="flex flex-col gap-1">
             {nav.map((item) => <li key={item.href}><GlassPillLink href={item.href} className="min-h-touch-target">{item.label}</GlassPillLink></li>)}
+            <li><GlassPillLink href={action.href} className="min-h-touch-target">{action.label}</GlassPillLink></li>
           </ul>
         </nav>
       </details>
