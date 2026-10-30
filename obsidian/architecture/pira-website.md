@@ -6,21 +6,23 @@ updated: 2026-10-29
 # PIRA website
 
 PIRA means **Physical Intelligence Runtime for Agents**. This repository is the
-marketing website, not the Android runtime or the Nebius integration. Copy in
-`src/data/project-pages.ts` clearly identifies experimental / proposed behavior.
+marketing website; the Android client lives in its dedicated public repository.
+The site presents PIRA as a security-first runtime that keeps a policy and
+authorization boundary between agent reasoning and device execution.
 
 ## Content and routes
 
 - `src/data/pira.ts`: shared identity, philosophy and release destinations.
 - `src/data/mocks/home.ts`: typed hero, navigation and preloader copy.
-- `/about`, `/how-it-works`, `/architecture`, `/download`: static routes delegating
-  to the server-rendered `src/views/project.tsx`; each has its own canonical and
-  metadata, and appears in the sitemap.
+- `/about`, `/how-it-works`, `/architecture`, `/security`, `/download`: static
+  routes delegating to the server-rendered `src/views/project.tsx`; each has its
+  own canonical and metadata, and appears in the sitemap.
 - `SiteFooter` is shared between the home and project views.
 - The home retains the scene, typography, viewfinder, pill controls, preloader,
   spring reveals and Observe → Reason → Act → Verify band. The footer adds a
   short scroll below the hero. Mobile navigation uses native `details/summary`.
-- GitHub defaults to `https://github.com/PIRA-Labs/Pira-web` (owner supplied).
+- Android build: `https://github.com/PIRA-Labs/Pira-Android`.
+- Navigation GitHub: `https://github.com/PIRA-Labs`.
 
 ## Release configuration
 
@@ -30,11 +32,8 @@ variables in production. Rebuild when changing a public environment variable.
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin; otherwise Vercel production domain |
-| `NEXT_PUBLIC_ANDROID_APK_URL` | APK release URL; blank links to the honest `/download` availability page |
-| `NEXT_PUBLIC_GITHUB_URL` | Optional repository override |
-
-No Nebius keys or third-party API calls were added to the browser. This site
-explains the intended runtime; it does not implement device control or inference.
+No Nebius keys or third-party API calls are exposed in the browser. The website
+uses only its own static content and same-origin paths.
 
 ## Mascot and assets
 

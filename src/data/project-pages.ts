@@ -1,53 +1,86 @@
 import { pira } from "./pira";
 
+export interface ProjectSection {
+  heading: string;
+  body: string;
+}
+
 export interface ProjectPageContent {
   eyebrow: string;
   title: string;
+  metaTitle: string;
   intro: string;
-  sections: readonly { heading: string; body: string }[];
+  sections: readonly ProjectSection[];
+  sequence?: boolean;
 }
 
 export const projectPages = {
   about: {
-    eyebrow: "The idea",
-    title: "Physical intelligence. Existing hardware.",
-    intro: pira.philosophy,
+    eyebrow: "Physical Intelligence Runtime for Agents",
+    title: "A controlled execution layer for reality.",
+    metaTitle: "About PIRA",
+    intro: "PIRA gives AI agents a disciplined way to work through Android devices: models can propose actions, while policy, authorization, and trusted execution keep people in control.",
     sections: [
-      { heading: "A runtime for the real world", body: "PIRA stands for Physical Intelligence Runtime for Agents. The project explores turning everyday Android devices into physical interfaces for AI agents: a way to connect digital reasoning with the world around us." },
-      { heading: "The device is already here", body: "An Android phone brings a camera, microphone, sensors, a screen, and connectivity. PIRA’s approach is to make these existing capabilities available through a runtime, rather than require a new piece of dedicated AI hardware." },
-      { heading: "Built around a feedback loop", body: "Observe → Reason → Act → Verify. A useful physical agent needs to check what happened after an action, not just assume that its command succeeded." },
-      { heading: "An experimental project", body: "This website describes the project’s direction. Device support, available actions, permissions, and model integrations depend on the actual release. The mascot is an illustration of the idea, not a robot that ships with the software." },
+      { heading: "Built for a real-world boundary", body: "PIRA sits between model reasoning and Android capabilities. It turns agent intent into typed action proposals instead of granting a language model direct access to privileged device operations." },
+      { heading: "Android first, including the device you already have", body: "Android is PIRA’s first trusted client: a practical physical interface with a camera, screen, audio, connectivity, and hardware permissions. A repurposed or second-hand smartphone can become a secure, reusable interface for an AI agent instead of requiring dedicated new hardware." },
+      { heading: "Human control by design", body: "Sensitive actions require scoped user authorization. PIRA is not an unrestricted remote-control layer, a generic chatbot, or a system that bypasses consent." },
+      { heading: "An accountable loop", body: "A request moves from observation to proposal, authorization, execution, and an auditable result. Agents receive outcomes they can reason about instead of assuming an operation succeeded." },
     ],
   },
   "how-it-works": {
-    eyebrow: "The runtime loop",
-    title: "Observe → Reason → Act → Verify",
-    intro: "A connection to reality needs feedback. PIRA is designed around four steps, repeated as the world changes.",
+    eyebrow: "The runtime execution flow",
+    title: "From agent intent to a controlled physical result.",
+    metaTitle: "How PIRA Works",
+    intro: "PIRA turns an Android device—new, spare, or repurposed—into a controlled physical interface for an AI agent. The runtime gives every capability request a defined shape, scope, and result.",
+    sequence: true,
     sections: [
-      { heading: "01 / Observe", body: "Gather context through the Android device’s available inputs, such as its camera and sensors. Access depends on explicit device permissions and the capabilities supported by a release." },
-      { heading: "02 / Reason", body: "Use that context to decide what should happen next. Nebius AI models are the intended reasoning layer, connecting perception and planning with the agent’s goal." },
-      { heading: "03 / Act", body: "Translate the decision into an action the runtime supports. The phone is a physical interface: actions are constrained by Android permissions, device hardware, and the runtime’s implemented tools." },
-      { heading: "04 / Verify", body: "Observe again and compare the result with the intended outcome. Feed the evidence into the next reasoning step; a command being sent is not proof that the task is complete." },
+      { heading: "Agent", body: "An AI agent interprets a request or supported observation and decides that a physical capability could help: a camera capture, sensor reading, or spoken response." },
+      { heading: "Action request", body: "The agent creates a typed request that declares the capability, inputs, and intended scope. It is a proposal—not direct device control." },
+      { heading: "Policy", body: "PIRA evaluates the request against allowed capabilities, execution boundaries, and the current context before an operation can proceed." },
+      { heading: "Authorization", body: "When a request crosses a sensitive boundary, the person using the device explicitly approves the scoped action." },
+      { heading: "Physical capability", body: "The trusted Android executor performs the approved operation through the device’s camera, sensors, speech, or another enabled capability." },
+      { heading: "Result", body: "PIRA returns a concrete outcome to the agent and records the flow, so the agent can respond to evidence instead of assuming success." },
     ],
   },
   architecture: {
-    eyebrow: "System architecture / proposed",
-    title: "An interface between agents and reality.",
-    intro: "Existing Android hardware at the edge. Agent reasoning powered by Nebius AI models. A runtime that connects the two.",
+    eyebrow: "The PIRA execution model",
+    title: "Models propose. Policy decides. Devices execute.",
+    metaTitle: "PIRA Architecture",
+    intro: "PIRA creates a deliberate boundary between AI reasoning and physical capability execution, so every request has a defined shape, scope, and result.",
+    sequence: true,
     sections: [
-      { heading: "Android / physical interface", body: "The device hosts the runtime and provides permission-controlled access to supported inputs and outputs. Hardware support is device-specific; the project does not assume every Android phone exposes the same capabilities." },
-      { heading: "Runtime / execution boundary", body: "The proposed runtime translates observations into agent context and agent decisions into supported device actions. It should report errors and outcomes explicitly, so the agent can verify its work." },
-      { heading: "Nebius / reasoning layer", body: "The intended integration uses Nebius AI models for reasoning over observations and selecting next steps. Model access and credential handling belong to the runtime’s backend integration, not to this public website." },
-      { heading: "Feedback / evidence of results", body: "The next observation closes the loop. Verification should distinguish a requested action, an executed action, and a confirmed outcome. This is an architectural goal, not a claim that every capability is operational today." },
+      { heading: "AI model", body: "A model interprets a user request or a supported device observation. It reasons about the next useful step; it does not receive direct privileged Android control." },
+      { heading: "Typed action proposal", body: "The model’s intent becomes structured data that names an operation, its inputs, and its requested scope." },
+      { heading: "PIRA policy engine", body: "Policy evaluates the proposal against allowed capabilities, limits, and context before any device operation is considered." },
+      { heading: "Scoped user authorization", body: "Sensitive operations wait for explicit human approval. Authorization is specific to the requested action rather than a blanket grant." },
+      { heading: "Trusted capability executor", body: "The Android runtime performs only approved operations through the capability boundary and returns a concrete outcome." },
+      { heading: "Android / physical device", body: "The device supplies the authorized hardware capability and the resulting evidence enters the audit trail for the agent and user. The capability boundary is designed to extend to future sensor, Bluetooth, and wearable integrations." },
+    ],
+  },
+  security: {
+    eyebrow: "Security model",
+    title: "Physical access should be explicit, bounded, and interruptible.",
+    metaTitle: "PIRA Security",
+    intro: "PIRA is designed so that AI can request access to physical capability without turning a model into an unrestricted device operator.",
+    sections: [
+      { heading: "Human authorization", body: "PIRA asks for user approval when an action crosses a sensitive boundary. The user authorizes the requested operation, not a vague future category of access." },
+      { heading: "Least privilege", body: "Capabilities are scoped to the smallest action and inputs needed for the task. Policy can deny requests that do not fit the runtime’s allowed execution surface." },
+      { heading: "Deny by default", body: "An unsupported, malformed, or unauthorized proposal does not become a device operation. The executor accepts approved, typed work only." },
+      { heading: "Credential boundaries", body: "Provider credentials are handled by the runtime integration and are not exposed through the browser-facing PIRA website." },
+      { heading: "Emergency stop", body: "PIRA includes an execution boundary that can stop an active capability flow, keeping control with the person using the device." },
+      { heading: "Auditability", body: "The runtime records proposals, authorizations, execution outcomes, and errors so a result can be traced back to the decision that produced it." },
     ],
   },
   download: {
-    eyebrow: "Android release",
-    title: pira.apkUrl ? "Take PIRA into the real world." : "The Android release is coming.",
-    intro: pira.apkUrl ? "An Android APK download has been configured. Review the release notes and device requirements before installing." : "There is no public APK linked yet. This page will point to the Android download when a release is available.",
+    eyebrow: "Developers / Android",
+    title: "Build with physical intelligence, deliberately.",
+    metaTitle: "Developers and Android",
+    intro: "Start with the Android client and connect your agent to PIRA’s policy-controlled capability boundary.",
     sections: [
-      { heading: "Follow the project", body: "Visit the PIRA GitHub repository for the project’s published work. Availability and supported capabilities should be checked against the release documentation." },
-      { heading: "Use the hardware you have", body: "PIRA is designed for existing Android devices. Minimum Android version, compatible devices, required permissions, and installation steps will be documented with the APK release." },
+      { heading: "Android / Kotlin", body: "The Android client is built in Kotlin and is the first PIRA executor for device capabilities, permissions, and user-facing authorization." },
+      { heading: "Model provider", body: "NVIDIA Nemotron is available through Nebius Token Factory for supported model reasoning and vision workflows." },
+      { heading: "Research provider", body: "Tavily Search can be invoked as a separate, policy-governed capability when an agent requests web research." },
+      { heading: "Get the Android build", body: "The Android repository contains the current installation path, configuration guidance, and contribution context for PIRA." },
     ],
   },
 } satisfies Record<string, ProjectPageContent>;

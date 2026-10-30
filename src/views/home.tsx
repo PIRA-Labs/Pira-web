@@ -2,10 +2,12 @@ import { PreloadedGrassField, Preloader } from "@/components/common/preloader";
 import { RobotReady } from "@/components/common/preloader/robot-ready";
 import { RobotProvider, RobotView } from "@/components/common/robot-view";
 import { homeHeader, homeHero, homePreloader } from "@/data/mocks/home";
+import { capabilities } from "@/data/pira";
 
 import { SiteFooter } from "./home/site-footer";
 
 import { HeroContent } from "./home/hero-content";
+import { Capabilities } from "./home/capabilities";
 import { SiteHeader } from "./home/site-header";
 
 interface HomeViewProps {
@@ -46,6 +48,7 @@ export const HomeView = ({ robot = false }: HomeViewProps) => {
 
         {robot ? <RobotReady /> : <Preloader content={homePreloader} />}
       </div>
+      <Capabilities capabilities={capabilities} />
       <SiteFooter />
     </RobotProvider>
   );

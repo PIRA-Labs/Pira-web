@@ -1,11 +1,11 @@
 {
   "name": "PIRA — Physical Intelligence Runtime for Agents",
   "short_name": "PIRA",
-  "description": "Turn everyday Android devices into physical runtimes for AI agents.",
+  "description": "PIRA is a security-first physical intelligence runtime connecting AI agents to Android device capabilities through scoped permissions and human-controlled execution.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#005bdb",
-  "background_color": "#005bdb",
+  "theme_color": "#080a14",
+  "background_color": "#080a14",
   "icons": [
     {
       "src": "/android-icon-36x36.png",

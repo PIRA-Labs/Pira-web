@@ -37,6 +37,11 @@ client leaf ([[components/scene]]) and the Figma UI overlay on top of it:
 | Route | File | View |
 |-------|------|------|
 | `/` | `src/app/page.tsx` | `views/home.tsx` → `HomeView` |
+| `/about` | `src/app/about/page.tsx` | `views/project.tsx` → `ProjectView` |
+| `/how-it-works` | `src/app/how-it-works/page.tsx` | `views/project.tsx` → `ProjectView` |
+| `/architecture` | `src/app/architecture/page.tsx` | `views/project.tsx` → `ProjectView` |
+| `/security` | `src/app/security/page.tsx` | `views/project.tsx` → `ProjectView` |
+| `/download` | `src/app/download/page.tsx` | `views/project.tsx` → `ProjectView` |
 
 ## Special files
 

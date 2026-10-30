@@ -1,6 +1,6 @@
 # PIRA — Physical Intelligence Runtime for Agents
 
-> **AI has a brain. Give it access to reality.**
+> **Give AI access to reality. Keep humans in control.**
 
 This repository is the **PIRA landing page** — the front door to the PIRA
 project and the place to download the Android APK. PIRA itself (the runtime,
@@ -15,8 +15,9 @@ and 3D scene are adapted, with gratitude, from a template by Textura / GetLayers
 
 A single-screen cinematic landing: a WebGL meadow scene with a floating
 Pirophone mascot, spring-based motion, and PIRA's own visual identity (indigo
-dusk palette, Space Grotesk display type, viewfinder interface). Plus static
-About, How It Works, Architecture, and Download pages.
+dusk palette, Space Grotesk display type, viewfinder interface). The site
+explains PIRA's Android runtime, controlled execution architecture, security
+model, and developer path.
 
 Tech: **Next.js 16**, **React 19**, **three.js**, **@react-spring/web**,
 **Lenis**, **spring-text-engine**, **Tailwind CSS v4**, **Zustand**, **Zod**.
@@ -43,8 +44,10 @@ yarn dev                # http://localhost:3000
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (falls back to the Vercel production domain) |
-| `NEXT_PUBLIC_ANDROID_APK_URL` | APK release URL; blank links to the honest `/download` availability page |
-| `NEXT_PUBLIC_GITHUB_URL` | Optional repository override |
+
+The Android build is available from
+[`PIRA-Labs/Pira-Android`](https://github.com/PIRA-Labs/Pira-Android). The
+navigation GitHub link points to [PIRA Labs](https://github.com/PIRA-Labs).
 
 Rebuild after changing a public environment variable. See
 [`obsidian/architecture/environment-variables.md`](./obsidian/architecture/environment-variables.md).

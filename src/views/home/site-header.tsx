@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { GlassPillLink } from "@/components/ui/glass-pill-link";
 import type { HomeHeaderContent } from "@/data/mocks/home";
@@ -32,13 +33,17 @@ export const SiteHeader = ({ content }: SiteHeaderProps) => {
         href={logo.href}
         // The home link on the home page: nothing to prefetch.
         prefetch={false}
-        className="group pointer-events-auto absolute top-3 left-6 flex min-h-touch-target items-center font-body text-body leading-none text-overlay-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-overlay-text"
+        className="group pointer-events-auto absolute top-3 left-6 flex min-h-touch-target items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-overlay-text"
       >
         <Reveal tag="span" preset="rise" delay={TIMING.logo} className="block">
-          <span>{logo.primary}</span>
-          <span className="text-overlay-text-muted transition-colors duration-[var(--duration-normal)] ease-entrance group-hover:text-overlay-text">
-            {logo.secondary}
-          </span>
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            width={1774}
+            height={887}
+            priority
+            className="block w-24 mix-blend-screen sm:w-32"
+          />
         </Reveal>
       </Link>
 

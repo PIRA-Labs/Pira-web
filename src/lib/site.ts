@@ -34,14 +34,14 @@ export const siteConfig = {
    */
   ogImage: "/open-graph.png",
   ogImageAlt:
-    "PIRA — AI has a brain. Give it access to reality.",
+    "PIRA — Give AI access to reality. Keep humans in control.",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   /** No X/Twitter account yet. Set a handle and the twitter:site tags appear. */
   twitterHandle: undefined as string | undefined,
   author: pira.name,
   /** Browser theme-color (address bar / PWA) — the scene's sky top. */
-  themeColor: "#005bdb",
+  themeColor: "#080a14",
   /** Manifest / tile background — the same sky. */
-  backgroundColor: "#005bdb",
+  backgroundColor: "#080a14",
 } as const;

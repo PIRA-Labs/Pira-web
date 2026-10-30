@@ -16,6 +16,42 @@ For *why* the conventions are what they are, see [[decisions-log]].
 
 ---
 
+## 2026-10-30 — Product narrative and official identity pass
+
+- Repositioned the public site around PIRA as a security-first execution layer:
+  typed proposals, policy evaluation, scoped authorization, trusted Android
+  execution, and auditability now have distinct home, architecture, workflow,
+  and security narratives.
+- Added `/security` to the static project-document view and sitemap; the
+  `/download` page is now the Android developer entry point. Android and
+  organization links are fixed to the supplied PIRA Labs destinations.
+- Added the supplied PIRA wordmark and isotipo as local brand assets. The
+  header, PWA icons, favicon, and Open Graph image now use official identity
+  artwork. No scene, animation engine, or performance-sensitive WebGL code was
+  changed.
+
+---
+
+## 2026-10-30 — First public Vercel deployment
+
+- Published https://pira-ai.vercel.app under `valentecreativos-projects/pira`.
+  `pira.vercel.app` is already taken. Configured the Next.js preset, Node 22.x
+  project setting, and production `NEXT_PUBLIC_SITE_URL`.
+- Initial empty framework preset served a 404; corrected and redeployed before
+  handing over. Final production deployment: `dpl_3rMF3gNqBjsdVNFTXGnxFt7x8RFp`.
+- Local lint/build pass; mechanical checks: 0 FAIL / 3 existing WARN categories.
+  All public pages, robots, sitemap, both GLBs, OG image and favicon return 200
+  without authentication. Canonical and JSON-LD use the public HTTPS origin.
+- Hosted mobile Lighthouse: Performance 60 / Accessibility 100 / Best Practices
+  100 / SEO 100; LCP 1.2s, CLS 0, TBT 10,960ms on the human WebGL path.
+  High simulated JS blocking remains an optimization item; see [[ship]].
+- Added `.vercelignore` to keep source asset backups, QA files, documentation,
+  agent harness and local environment files out of deployment uploads.
+- The APK URL remains unset; the live CTA correctly opens the release-status
+  page. No Android release or model backend was fabricated.
+
+---
+
 ## 2026-10-30 — Art-direction pass: PIRA's own visual identity
 
 A focused art-direction refinement (not a redesign) to give PIRA a distinctive

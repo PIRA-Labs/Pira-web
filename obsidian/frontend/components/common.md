@@ -156,6 +156,8 @@ per frame and an `aria-label` from props. The visual counter is `aria-hidden`.
 ## PIRA adaptation (2026-10-29)
 
 `SiteFooter` (`views/home/site-footer.tsx`) is a server-rendered shared identity
-and privacy footer. `ProjectView` (`views/project.tsx`) renders the four typed
-project documents without WebGL. `PreloadedGrassField` now accepts a portrait
+and privacy footer. `HomeView` adds the server-rendered `Capabilities` section,
+fed by `data/pira.ts`, below the preserved WebGL hero. `ProjectView`
+(`views/project.tsx`) renders five typed project documents—including the
+security model—without WebGL. `PreloadedGrassField` now accepts a portrait
 `posterMobile` source through a native picture element. See [[pira-website]].

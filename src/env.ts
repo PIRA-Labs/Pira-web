@@ -25,8 +25,6 @@ const optionalUrl = () =>
 
 const publicSchema = z.object({
   NEXT_PUBLIC_SITE_URL: optionalUrl(),
-  NEXT_PUBLIC_ANDROID_APK_URL: optionalUrl(),
-  NEXT_PUBLIC_GITHUB_URL: optionalUrl(),
 });
 
 const serverSchema = z.object({
@@ -42,8 +40,6 @@ const serverSchema = z.object({
 /** Public env — safe to read anywhere (server or client). */
 export const publicEnv = publicSchema.parse({
   NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
-  NEXT_PUBLIC_ANDROID_APK_URL: process.env.NEXT_PUBLIC_ANDROID_APK_URL,
-  NEXT_PUBLIC_GITHUB_URL: process.env.NEXT_PUBLIC_GITHUB_URL,
 });
 
 let cachedServerEnv: z.infer<typeof serverSchema> | undefined;

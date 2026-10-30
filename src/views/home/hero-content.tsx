@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { ActionLink } from "@/components/ui/action-link";
+import { GlassPillLink } from "@/components/ui/glass-pill-link";
 import type { HomeHeroContent } from "@/data/mocks/home";
 
 import { HeroFrame } from "./hero-frame";
@@ -45,56 +46,62 @@ export const HeroContent = ({ content }: HeroContentProps) => {
           <RevealText
             delay={TIMING.title}
             stagger={TIMING.titleStagger}
-            className="justify-center text-center font-display text-display-compact leading-display font-bold tracking-display sm:text-display"
+            className="justify-center text-center font-display text-subtitle-compact leading-display font-bold tracking-display sm:text-display"
           >
             {content.title}
           </RevealText>
           <RevealText
             delay={TIMING.subtitle}
             stagger={TIMING.subtitleStagger}
-            className="justify-center text-center font-display text-subtitle-compact leading-display font-medium tracking-subtitle text-overlay-text-muted sm:text-subtitle"
+            className="justify-center text-center font-display text-body leading-display font-medium tracking-subtitle text-overlay-text-muted sm:text-subtitle"
           >
             {content.subtitle}
           </RevealText>
         </h1>
 
-        <RevealText
-          tag="p"
-          delay={TIMING.body}
-          stagger={TIMING.bodyStagger}
-          className="mt-auto w-153.5 max-w-full justify-center text-center font-body text-body leading-copy text-overlay-text"
-        >
-          {content.body}
-        </RevealText>
+        <div className="mt-auto hidden sm:block">
+          <RevealText
+            tag="p"
+            delay={TIMING.body}
+            stagger={TIMING.bodyStagger}
+            className="w-153.5 max-w-full justify-center text-center font-body text-body leading-copy text-overlay-text"
+          >
+            {content.body}
+          </RevealText>
+        </div>
 
-        <ActionLink
-          href={content.action.href}
-          label={content.action.label}
-          icon={content.actionIcon}
-          className="pointer-events-auto mt-8.25"
-          renderSurface={(surfaceClass) => (
-            <Reveal
-              tag="span"
-              preset="surface"
-              delay={TIMING.action}
-              className={surfaceClass}
-              aria-hidden="true"
-            />
-          )}
-          renderLabel={(label) => (
-            <Reveal tag="span" preset="focus" delay={TIMING.actionLabel} className="relative block">
-              {label}
-            </Reveal>
-          )}
-          renderIcon={(icon) => (
-            <Reveal tag="span" preset="bracket" delay={TIMING.actionIcon} className="relative block shrink-0">
-              {icon}
-            </Reveal>
-          )}
-        />
+        <div className="pointer-events-auto mt-5 flex flex-wrap justify-center gap-3 sm:mt-8.25">
+          <ActionLink
+            href={content.action.href}
+            label={content.action.label}
+            icon={content.actionIcon}
+            renderSurface={(surfaceClass) => (
+              <Reveal
+                tag="span"
+                preset="surface"
+                delay={TIMING.action}
+                className={surfaceClass}
+                aria-hidden="true"
+              />
+            )}
+            renderLabel={(label) => (
+              <Reveal tag="span" preset="focus" delay={TIMING.actionLabel} className="relative block">
+                {label}
+              </Reveal>
+            )}
+            renderIcon={(icon) => (
+              <Reveal tag="span" preset="bracket" delay={TIMING.actionIcon} className="relative block shrink-0">
+                {icon}
+              </Reveal>
+            )}
+          />
+          <GlassPillLink href={content.secondaryAction.href} className="min-h-touch-target px-4 text-overlay-text">
+            {content.secondaryAction.label}
+          </GlassPillLink>
+        </div>
       </div>
 
-      <div className="pointer-events-none relative flex h-15.5 w-full shrink-0 items-center justify-center px-4">
+      <div className="pointer-events-none relative flex h-12 w-full shrink-0 items-center justify-center px-4 sm:h-15.5">
         <Reveal
           tag="span"
           preset="fade"

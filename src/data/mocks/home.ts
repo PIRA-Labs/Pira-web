@@ -6,10 +6,8 @@ export interface HomeLink {
 }
 
 export interface HomeLogo {
-  /** Full-opacity part of the wordmark. */
-  primary: string;
-  /** Dimmed part of the wordmark. */
-  secondary: string;
+  src: string;
+  alt: string;
   href: string;
 }
 
@@ -28,6 +26,7 @@ export interface HomeHeroContent {
   subtitle: string;
   body: string;
   action: HomeLink;
+  secondaryAction: HomeLink;
   /** Icon inside the primary action — decorative. */
   actionIcon: string;
   trust: string;
@@ -45,24 +44,26 @@ export const homePreloader: HomePreloaderContent = {
 };
 
 export const homeHeader: HomeHeaderContent = {
-  logo: { primary: "PIRA", secondary: ".", href: "/" },
+  logo: { src: "/assets/brand/pira-wordmark.png", alt: "PIRA", href: "/" },
   navLabel: "Primary",
   menuLabel: "Menu",
   nav: [
-    { label: "About", href: "/about" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "Architecture", href: "/architecture" },
-    { label: "GitHub", href: pira.githubUrl },
+    { label: "Security", href: "/security" },
+    { label: "Developers", href: "/download" },
+    ...(pira.githubUrl ? [{ label: "GitHub", href: pira.githubUrl }] : []),
   ],
-  action: { label: "Android APK", href: pira.downloadHref },
+  action: { label: "Android status", href: pira.downloadHref },
 };
 
 export const homeHero: HomeHeroContent = {
-  title: "AI has a brain.",
-  subtitle: "Give it access to reality.",
+  title: "Give AI access to reality.",
+  subtitle: "Keep humans in control.",
   body: pira.description,
-  action: { label: "Download for Android", href: pira.downloadHref },
-  actionIcon: "/assets/hero/download.svg",
-  trust: "Observe → Reason → Act → Verify",
+  action: { label: "See PIRA in Action", href: "/how-it-works" },
+  secondaryAction: { label: "Explore the Architecture", href: "/architecture" },
+  actionIcon: "/assets/hero/runtime.svg",
+  trust: "Security-first runtime. Human-controlled Android access.",
   trustIcon: "/assets/hero/runtime.svg",
 };
