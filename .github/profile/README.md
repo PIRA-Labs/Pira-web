@@ -1,5 +1,5 @@
 <!-- .github/profile/README.md — PIRA-Labs Organization Profile -->
-<!-- This file renders at https://github.com/PIRA-Labs -->
+<!-- This renders at https://github.com/PIRA-Labs -->
 
 <div align="center">
 
@@ -24,6 +24,21 @@
     <a href="https://github.com/PIRA-Labs/Pira-Android" style="background: rgba(255,255,255,0.06); color: #e2e8f0; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.12);">Android Runtime</a>
     <a href="https://github.com/PIRA-Labs/Pira-Research" style="background: rgba(255,255,255,0.06); color: #e2e8f0; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.12);">Research</a>
   </div>
+
+  <details style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 16px; margin-top: 16px; max-width: 680px; margin-left: auto; margin-right: auto;">
+    <summary style="cursor: pointer; font-size: 0.9rem; color: #9ca3af; font-weight: 600;">Reviewer quick verification (3 min per repo)</summary>
+    <div style="margin-top: 10px; font-size: 0.82rem; color: #9ca3af; line-height: 1.7; text-align: left;">
+      <strong style="color: #cbd5e1;">PIRA Android (runtime + tests):</strong><br>
+      <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">git clone https://github.com/PIRA-Labs/Pira-Android.git && cd Pira-Android && export JAVA_HOME=/opt/homebrew/opt/openjdk@17 && ./gradlew :app:testDebugUnitTest :app:assembleDebug</code><br>
+      Expected: tests pass; APK at <code>app/build/outputs/apk/debug/app-debug.apk</code>.<br><br>
+      <strong style="color: #cbd5e1;">PIRA Web (landing page):</strong><br>
+      <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">git clone https://github.com/PIRA-Labs/Pira-web.git && cd Pira-web && yarn install && yarn build</code><br>
+      Expected: production build in <code>.next/</code>, no errors.<br><br>
+      <strong style="color: #cbd5e1;">PIRA Research (evidence archive):</strong><br>
+      <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">git clone https://github.com/PIRA-Labs/Pira-Research.git</code><br>
+      Key files: <code>README.md</code>, <code>RESEARCH_INDEX.md</code>, <code>experiments/FORMAL-VELA-ANDROID-MIAU-MILESTONE.md</code>, <code>NEXT_OBJECTIVES.md</code>.
+    </div>
+  </details>
 
 </div>
 
@@ -118,7 +133,7 @@ Every significant choice is recorded in `docs/adr/`:
 `docs/EXPERIMENTS.md` tracks every hypothesis with status: Not Tested, Blocked, Passed, Partially implemented, or Failed. No claim is made without an experiment entry.
 
 ### Reproducible builds
-Debug APK builds are verified with JDK 17 and Gradle 8.7.3. Build and test commands are documented in `CONTRIBUTING.md`.
+Debug APK builds are verified with JDK 17 and Gradle 9.7.1. Build and test commands are documented in `CONTRIBUTING.md`.
 
 ### Automated tests
 Unit tests cover the policy engine's rejection matrix. Tests pass on the current codebase.
@@ -154,7 +169,7 @@ This history is reconstructed from code, commit provenance, and available resear
 |------------|------|--------|
 | **PIRA Web** | Public landing, brand experience, APK download page | In development — build verified |
 | **PIRA Android** | Runtime and companion implementation | In development — debug build + unit tests verified |
-| **PIRA Research** | Experimental evidence, ADRs, threat models, research history | Not yet published |
+| **PIRA Research** | Experimental evidence, ADRs, threat models, research history | Published — 16 documents, 6 commits |
 
 Cross-links between repositories will be added as each repo goes public.
 
