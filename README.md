@@ -35,10 +35,7 @@ yarn build
 
 ## What this repository is
 
-This is the **PIRA public landing page**. It is the front door to the PIRA
-project and the place to download the Android APK. PIRA itself (the runtime,
-research, and experimentation) lives in its own organization and repositories;
-this is just the website.
+This is the **PIRA public landing page**. It presents the product, research lineage, and download path for the Android runtime.
 
 It is released as open source under the [MIT License](./LICENSE.md).
 
@@ -50,19 +47,16 @@ It is released as open source under the [MIT License](./LICENSE.md).
 - It is not the research archive
 - It is not the Android implementation
 - It is not endorsed by Nebius, Xiaomi, or any third party
+- It does not call Nebius, Tavily, or Xiaomi APIs directly
 
 ---
 
 ## What's here
 
-A cinematic single-page landing experience:
-
-- WebGL meadow scene with a floating Pirophone mascot
-- Spring-based motion and scroll-driven narrative
-- PIRA's visual identity: indigo dusk palette, Space Grotesk type, viewfinder UI
-- Explanation of PIRA's Android runtime, controlled execution architecture, and security model
-- Direct APK download link
-- Links to the PIRA ecosystem (Android runtime, research archive)
+- WebGL landing experience with PIRA visual identity
+- Scroll-driven product narrative
+- APK download link
+- Links to PIRA Android and PIRA Research
 
 ---
 
@@ -155,7 +149,7 @@ Full acknowledgements: [NOTICE.md](./NOTICE.md).
 
 ## What a reviewer should know
 
-1. **This is a marketing/experience layer, not the runtime.** The actual
+1. **This is a presentation layer, not the runtime.** The actual
    PIRA trust boundary, policy engine, and capability execution live in
    `PIRA-Labs/Pira-Android`.
 
@@ -172,4 +166,4 @@ Full acknowledgements: [NOTICE.md](./NOTICE.md).
 ---
 
 *README maintained by PIRA-Labs.
-Last updated: 2026-10-30*
+Last updated: 2026-11-04*
