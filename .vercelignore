@@ -1,0 +1,7 @@
+# Local originals, documentation and QA captures are not runtime inputs.
+assets/originals/
+artifacts/
+obsidian/
+.claude/
+.env*
+/video/
