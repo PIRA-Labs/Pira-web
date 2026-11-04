@@ -88,7 +88,7 @@ export const projectPages = {
     actions: [{ label: "Read the Android security model", href: pira.androidReadmeUrl }],
   },
   download: {
-    eyebrow: "PIRA for Android · v0.1.0",
+    eyebrow: "PIRA for Android · v0.2.0 Beta",
     title: "Your old Android has a new job.",
     metaTitle: "Download PIRA for Android",
     intro: "Install PIRA on a device you control. Connect your AI provider, configure optional web search, and explore physical capabilities through permission-controlled actions.",
@@ -123,7 +123,7 @@ export const projectPages = {
       { heading: "Keep your keys private", body: "API credentials are stored using Android Keystore-backed encrypted preferences. Never share your keys or include them in screenshots." },
     ],
     actions: [
-      { label: "Download APK · v0.1.0", href: pira.downloadHref, primary: true },
+      { label: "Download APK · v0.2.0 Beta", href: pira.downloadHref, primary: true },
       { label: "View source code", href: pira.androidSourceUrl },
       { label: "Read installation guide", href: pira.androidReadmeUrl },
     ],
